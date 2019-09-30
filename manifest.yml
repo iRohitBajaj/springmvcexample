@@ -1,0 +1,7 @@
+applications:
+- name: testconfigclient
+  memory: 1G
+  instances: 1
+  path: ../springmvcexample/target/testconfigclient.war
+  services:
+    - config-server
