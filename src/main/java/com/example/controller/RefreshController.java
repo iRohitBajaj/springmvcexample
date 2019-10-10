@@ -17,7 +17,7 @@ public class RefreshController {
     @GetMapping(path = "/refreshAll")
     public String refresh() {
         refreshScope.refreshAll();
-        refreshAppplicationContext.refresh();
+        refreshAppplicationContext.refreshEnvironment();
         return "Refreshed";
     }
 }

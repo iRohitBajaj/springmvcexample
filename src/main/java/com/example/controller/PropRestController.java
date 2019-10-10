@@ -13,7 +13,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/props")
-@RefreshScope
 public class PropRestController {
 
     @Autowired
