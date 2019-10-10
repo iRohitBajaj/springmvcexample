@@ -1,9 +1,9 @@
-package com.example;
+package com.example.controller;
 
 import com.example.config.CustomPropertyPaceholderConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.env.Environment;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/props")
+@RefreshScope
 public class PropRestController {
 
     @Autowired
@@ -32,6 +33,7 @@ public class PropRestController {
         propsMap.put("key3",environment.getProperty("key3"));
         propsMap.put("key4",environment.getProperty("key4"));
         propsMap.put("key5",environment.getProperty("key5"));
+        propsMap.put("key6",environment.getProperty("key6"));
         propsMap.put("jdbc.url",environment.getProperty("jdbc.url"));
         propsMap.put("jdbc.username",environment.getProperty("jdbc.username"));
         propsMap.put("jdbc.password",environment.getProperty("jdbc.password"));
@@ -59,6 +61,9 @@ public class PropRestController {
                     }
                     if(propertySource.containsProperty("key5")) {
                         propsMap.put("key5", String.valueOf(propertySource.getProperty("key5")));
+                    }
+                    if(propertySource.containsProperty("key5")) {
+                        propsMap.put("key6", String.valueOf(propertySource.getProperty("key6")));
                     }
                     if(propertySource.containsProperty("jdbc.url")) {
                         propsMap.put("jdbc.url", String.valueOf(propertySource.getProperty("jdbc.url")));

@@ -8,5 +8,4 @@ public class CustomAppContextInitializer implements ApplicationContextInitialize
     public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
        configurableApplicationContext.setEnvironment(new CloudEnvironment());
     }
-
 }

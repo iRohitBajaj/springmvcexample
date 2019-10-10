@@ -69,7 +69,6 @@ public class CloudEnvironment extends StandardServletEnvironment {
             System.out.println("SETTING APP NAME");
             System.setProperty("spring.application.name", name);
         }
-
         configClientProperties.setName(name);
         configClientProperties.setProfile("default");
         configClientProperties.setLabel("master");

@@ -97,5 +97,12 @@
 	
 	<build>
 		<finalName>testconfigclient</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.3.v20170317</version>
+			</plugin>
+		</plugins>
 	</build>
 </project>

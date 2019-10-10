@@ -16,6 +16,17 @@
 		<property name = "suffix" value = ".jsp" />
 	</bean>
 
+	<bean id="refreshscope" class ="org.springframework.cloud.context.scope.refresh.RefreshScope"/>
+
+	<bean id="contextrefresher" class ="org.springframework.cloud.context.refresh.ContextRefresher">
+		<constructor-arg type = "org.springframework.cloud.context.scope.refresh.RefreshScope" ref="refreshscope"/>
+	</bean>
+
+	<bean class ="org.springframework.cloud.endpoint.event.RefreshEventListener">
+		<constructor-arg type = "org.springframework.cloud.context.refresh.ContextRefresher" ref="contextrefresher"/>
+	</bean>
+
+
 	<mvc:annotation-driven>
 		<mvc:message-converters>
 			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />

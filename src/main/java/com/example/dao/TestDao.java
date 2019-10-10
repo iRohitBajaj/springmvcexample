@@ -1,4 +1,4 @@
-package com.example;
+package com.example.dao;
 
 
 import org.springframework.beans.factory.annotation.Value;
@@ -10,6 +10,18 @@ import java.sql.SQLException;
 public class TestDao{
 
     protected String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 
     protected String username;
 

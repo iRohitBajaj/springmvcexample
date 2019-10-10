@@ -1,7 +1,9 @@
-package com.example;
+package com.example.controller;
 
+import com.example.dao.TestDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/properties")
+@RefreshScope
 public class PropViewController
 {
 	@Value("${key1}")
@@ -29,6 +32,9 @@ public class PropViewController
 	@Value("${key5}")
 	private String val5;
 
+	@Value("${key6:junkvalue}")
+	private String val6;
+
 	@Autowired
 	private ApplicationContext applicationContext;
 
@@ -45,9 +51,10 @@ public class PropViewController
 		arrList.add(val3);
 		arrList.add(val4);
 		arrList.add(val5);
-		arrList.add(dao.url);
-		arrList.add(dao.username);
-		arrList.add(dao.password);
+		arrList.add(val6);
+		arrList.add(dao.getUrl());
+		arrList.add(dao.getUsername());
+		arrList.add(dao.getPassword());
 		model.addAttribute("properties", arrList);
 		System.out.println(arrList.toString());
 		return "propsListDisplay";
